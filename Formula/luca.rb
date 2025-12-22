@@ -6,11 +6,10 @@ class Luca < Formula
   license "MIT"
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
-  bottle :unneeded
-
   depends_on xcode: ["26.0", :build]
+  depends_on :macos
 
-  uses_from_macos "swift" => :build
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"

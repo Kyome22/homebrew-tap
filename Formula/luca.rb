@@ -6,6 +6,10 @@ class Luca < Formula
   license "MIT"
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "4a237e30a4c8463d36d6aa766b00dbb87e69ccd731102ba2fc0a0e3a87690a91"
+  end
+
   depends_on xcode: ["26.0", :build]
 
   uses_from_macos "swift" => :build

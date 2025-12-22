@@ -6,6 +6,8 @@ class Luca < Formula
   license "MIT"
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
+  bottle :unneeded
+
   depends_on xcode: ["26.0", :build]
 
   uses_from_macos "swift" => :build

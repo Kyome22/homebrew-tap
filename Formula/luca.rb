@@ -17,4 +17,8 @@ class Luca < Formula
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/luca"
   end
+
+  test do
+    system "false"
+  end
 end

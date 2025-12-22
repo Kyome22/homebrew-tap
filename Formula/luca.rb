@@ -1,15 +1,17 @@
 class Luca < Formula
   desc "Command line tool to construct LUCA for Xcode project."
-  homepage "https://github.com/Kyome22/LUCA.git"
-  url "https://github.com/Kyome22/LUCA/releases/download/1.0.0/luca"
-  sha256 "03796527ddf6e0a8006fbd41a53ce484dcdb2bbd99f3b55b18f0b89868fbaee7"
+  homepage "https://github.com/Kyome22/LUCA"
+  url "https://github.com/Kyome22/LUCA/archive/refs/tags/1.0.0.tar.gz"
+  sha256 "d0df02c78a4d406a4574feba074f3da886f6f05a1f77f14887233005457cf04b"
   license "MIT"
+  head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
-  depends_on xcode: ["26.0", :build]
-  depends_on :macos
+  depends_on macos: :tahoe
+
+  uses_from_macos "swift" => :build, since: :tahoe
 
   def install
-    system "./configure", "--disable-silent-rules", *std_configure_args
-    bin.install "luca"
+    system "swift", "build", *args, "--configuration", "release"
+    bin.install ".build/release/luca"
   end
 end

@@ -7,9 +7,11 @@ class Luca < Formula
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
   depends_on xcode: ["26.0", :build]
+  depends_on arch: :arm64
+  depends_on macos: :tahoe
   depends_on :macos
 
-  uses_from_macos "swift"
+  uses_from_macos "swift" => :build
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"

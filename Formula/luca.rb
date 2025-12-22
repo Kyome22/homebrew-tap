@@ -6,15 +6,17 @@ class Luca < Formula
   license "MIT"
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
-  depends_on xcode: ["16.4", :build]
-  depends_on arch: :arm64
-  depends_on macos: :tahoe
-  depends_on :macos
+  depends_on xcode: ["26.0", :build]
 
   uses_from_macos "swift" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    args = if OS.mac?
+      ["--disable-sandbox"]
+    else
+      ["--static-swift-stdlib"]
+    end
+    system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/luca"
   end
 

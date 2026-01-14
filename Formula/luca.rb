@@ -1,8 +1,8 @@
 class Luca < Formula
   desc "Command line tool to construct LUCA for Xcode project."
   homepage "https://github.com/Kyome22/LUCA"
-  url "https://github.com/Kyome22/LUCA/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "d0df02c78a4d406a4574feba074f3da886f6f05a1f77f14887233005457cf04b"
+  url "https://github.com/Kyome22/LUCA/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "7d4f1981d5cb490498f7c59bb1de04c02b048bdc80decdbb3f257849aa2a6659"
   license "MIT"
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
@@ -23,6 +23,7 @@ class Luca < Formula
     end
     system "swift", "build", *args, "--configuration", "release"
     bin.install ".build/release/luca"
+    bin.install ".build/release/LUCA_LUCAKit.bundle"
   end
 
   test do

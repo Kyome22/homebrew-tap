@@ -2,7 +2,7 @@ class Luca < Formula
   desc "Command line tool to construct LUCA for Xcode project."
   homepage "https://github.com/Kyome22/LUCA"
   url "https://github.com/Kyome22/LUCA/archive/refs/tags/2.1.0.tar.gz"
-  sha256 "352abe745140efbd2b48c5eb28dc0da5d7051a64cfbbdca4dcb4122331ac77c1"
+  sha256 "3fe48263d591f8568f389d63ad5b07cbfbf90ea4ef485ee5f3eab4990a555300"
   license "MIT"
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 

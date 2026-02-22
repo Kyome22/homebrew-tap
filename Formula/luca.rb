@@ -7,8 +7,8 @@ class Luca < Formula
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
   bottle do
-    root_url "https://github.com/Kyome22/LUCA/releases/download/2.0.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "d878ee0716b4019d19d37e7487f59aa84ebbdc1baa371f2739e329540110fa3b"
+    root_url "https://github.com/Kyome22/LUCA/releases/download/2.1.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "79cb2e872fda468dfdc3bbb0693d037a857d5dfa0c709a622f96629770f4ac1a"
   end
 
   depends_on xcode: ["26.0", :build]

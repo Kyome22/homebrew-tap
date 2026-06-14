@@ -6,11 +6,6 @@ class Luca < Formula
   license "MIT"
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
 
-  bottle do
-    root_url "https://github.com/Kyome22/LUCA/releases/download/2.2.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "3592c0b3765c63caef8d70f25720cad6b8a8c3bc4d8e33a6fdc8b53b31bbbb33"
-  end
-
   depends_on xcode: ["26.0", :build]
 
   uses_from_macos "swift" => :build
@@ -22,8 +17,9 @@ class Luca < Formula
       ["--static-swift-stdlib"]
     end
     system "swift", "build", *args, "--configuration", "release"
-    bin.install ".build/release/luca"
-    bin.install ".build/release/LUCA_LUCAKit.bundle"
+    libexec.install ".build/release/luca"
+    libexec.install ".build/release/LUCA_LUCAKit.bundle"
+    bin.install_symlink libexec/"luca"
   end
 
   test do

@@ -1,15 +1,10 @@
 class Luca < Formula
   desc "Command-line tool to construct LUCA for Xcode project"
   homepage "https://github.com/Kyome22/LUCA"
-  url "https://github.com/Kyome22/LUCA/archive/refs/tags/3.1.0.tar.gz"
-  sha256 "4e79a39a4cbe9d3d8ac7b9275012e5e2910c4cc87776769209e3503d819f77e6"
+  url "https://github.com/Kyome22/LUCA/archive/refs/tags/3.2.0.tar.gz"
+  sha256 "689d54eff5094ff232682f3beee984f0f752bcce3302b90a8851756eefe6ef72"
   license "MIT"
   head "https://github.com/Kyome22/LUCA.git", branch: "main"
-
-  bottle do
-    root_url "https://github.com/Kyome22/LUCA/releases/download/3.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "e591e631970fb19ecd4e7dcd938c258518c4a757ef0f5a4aef3849f87da3947d"
-  end
 
   depends_on xcode: ["26.0", :build]
 
@@ -24,6 +19,7 @@ class Luca < Formula
     system "swift", "build", *args, "--configuration", "release"
     libexec.install ".build/release/luca"
     libexec.install ".build/release/LUCA_LUCAKit.bundle"
+    libexec.install ".build/release/XcodeGen_XcodeGenKit.bundle"
     bin.install_symlink libexec/"luca"
   end
 
